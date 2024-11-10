@@ -1,0 +1,14 @@
+.sidebar {
+    height: 100%;
+    position: absolute;
+    z-index: 10000;
+}
+
+.button {
+    height: 32px;
+}
+
+.menuContainer {
+    position: absolute;
+    display: flex;
+}
