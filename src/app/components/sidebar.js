@@ -2,11 +2,18 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
-import styles from './sidebar.module.css'
+import styles from './sidebar.module.css';
 
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const router = useRouter();
+
+    // Open/close sidebar on route navigation within each click
+    const handleLinkClick = () => {
+        setIsOpen(false);
+    };
 
     return (
         <div className={styles.sidebar}>
@@ -15,27 +22,27 @@ const Sidebar = () => {
                     <nav className="top-0 left-0 h-screen w-64 bg-gray-800 shadow-lg">
                         <ul className="flex flex-col w-full">
                             <li className="p-4">
-                                <Link href="/">
+                                <Link href="/" onClick={handleLinkClick}>
                                     Home
                                 </Link>
                             </li>
                             <li className="p-4">
-                                <Link href="/Games">
+                                <Link href="/games" onClick={handleLinkClick}>
                                     Games
                                 </Link>
                             </li>
                             <li className="p-4">
-                                <Link href="/about">
+                                <Link href="/about" onClick={handleLinkClick}>
                                     About
                                 </Link>
                             </li>
                             <li className="p-4">
-                                <Link href="/bug">
+                                <Link href="/bug" onClick={handleLinkClick}>
                                     Report a Bug
                                 </Link>
                             </li>
                             <li className="p-4">
-                                <Link href="/about">
+                                <Link href="/contact" onClick={handleLinkClick}>
                                     Contact
                                 </Link>
                             </li>
